@@ -1,0 +1,9 @@
+[package]
+name = "conformer"
+description = "A framework for authors of conformance test suites."
+version = "0.1.0"
+authors = ["Chinedu Francis Nwafili <frankie.nwafili@gmail.com>"]
+edition = "2018"
+keywords = ["conformance", "test", "suite", "integration", "testing"]
+
+[dependencies]
