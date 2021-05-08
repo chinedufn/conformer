@@ -1,6 +1,6 @@
 [package]
 name = "conformer"
-description = "A framework for authors of conformance test suites."
+description = "A simple framework for authoring conformance test suites."
 version = "0.1.0"
 authors = ["Chinedu Francis Nwafili <frankie.nwafili@gmail.com>"]
 edition = "2018"
