@@ -5,6 +5,8 @@ version = "0.1.0"
 authors = ["Chinedu Francis Nwafili <frankie.nwafili@gmail.com>"]
 edition = "2018"
 keywords = ["conformance", "test", "suite", "integration", "testing"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/chinedufn/conformer"
 
 [dependencies]
 
