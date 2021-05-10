@@ -44,7 +44,7 @@ pub trait TestCase<TypeToTest> {
     /// fn as_any(&self) -> &dyn std::any::Any {
     ///     self
     /// }
-    /// #}
+    /// # }
     /// ```
     fn as_any(&self) -> &dyn std::any::Any;
 }

@@ -1,7 +1,7 @@
 //! An example of where we have a [`SimpleRenderer`] trait and we want to test implementers of
 //! that trait.
 //!
-//! See main.rs for where we createa and run the test suite.
+//! See main.rs for where we create and run the test suite.
 
 #![deny(missing_docs)]
 
