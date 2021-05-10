@@ -1,21 +1,13 @@
 use std::collections::HashMap;
-use std::hash::Hash;
 
 /// Whether or not the test case passed along with metadata that they results renderer can
 /// make use of when rendering our the results of the conformance test.
+#[derive(Debug)]
 pub struct TestCaseResult {
     title: String,
     description: String,
     did_pass: bool,
-    metadata: HashMap<String, MetadataValue>,
-}
-
-/// The associated value for a metadata key.
-pub enum MetadataValue {
-    #[allow(missing_docs)]
-    String(String),
-    #[allow(missing_docs)]
-    Bytes(Vec<u8>),
+    metadata: HashMap<String, String>,
 }
 
 impl TestCaseResult {
@@ -40,7 +32,7 @@ impl TestCaseResult {
     }
 
     /// Insert metadata for the test case result.
-    pub fn insert_metadata(&mut self, key: String, value: MetadataValue) -> Option<MetadataValue> {
+    pub fn insert_metadata(&mut self, key: String, value: String) -> Option<String> {
         self.metadata.insert(key, value)
     }
 
@@ -51,7 +43,7 @@ impl TestCaseResult {
 
     /// Information that the test runner stored about the test case.
     /// Used by test result processors when deciding what to do with the test results.
-    pub fn metadata(&self) -> &HashMap<String, MetadataValue> {
+    pub fn metadata(&self) -> &HashMap<String, String> {
         &self.metadata
     }
 }

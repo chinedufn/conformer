@@ -1,13 +1,12 @@
 use crate::TestCaseResults;
-use std::hash::Hash;
 
-/// Prints titles and descriptions of tests that passed and failed.
-pub struct SimpleVisualizer {}
+/// A basic list of passing and failing tests, useful for visualizing in a terminal.
+pub struct ViewSimpleText {}
 
-impl SimpleVisualizer {
+impl ViewSimpleText {
     #[allow(missing_docs)]
     pub fn new() -> Self {
-        SimpleVisualizer {}
+        ViewSimpleText {}
     }
 
     /// Prints the titles an descriptions of tests that passed and failed.
@@ -73,7 +72,7 @@ mod tests {
     #[test]
     fn one_test_case_passed() {
         let test_results = test_suite_one(PassedOrFailed::Passed);
-        let results = SimpleVisualizer::new().process_test_results(&test_results);
+        let results = ViewSimpleText::new().process_test_results(&test_results);
 
         let expected = r#"My Test Suite Title
 My Test Suite description.
@@ -90,7 +89,7 @@ test result: ok. 1 passed; 0 failed"#;
     #[test]
     fn one_test_case_failed() {
         let test_results = test_suite_one(PassedOrFailed::Failed);
-        let results = SimpleVisualizer::new().process_test_results(&test_results);
+        let results = ViewSimpleText::new().process_test_results(&test_results);
 
         let expected = r#"My Test Suite Title
 My Test Suite description.
@@ -107,7 +106,7 @@ test result: FAILED. 0 passed; 1 failed"#;
     #[test]
     fn two_test_cases_one_pass_one_fail() {
         let test_results = test_suite_two(PassedOrFailed::Passed, PassedOrFailed::Failed);
-        let results = SimpleVisualizer::new().process_test_results(&test_results);
+        let results = ViewSimpleText::new().process_test_results(&test_results);
 
         let expected = r#"My Test Suite Title
 My Test Suite description.
@@ -125,7 +124,7 @@ test result: FAILED. 1 passed; 1 failed"#;
     #[test]
     fn two_test_cases_two_passing() {
         let test_results = test_suite_two(PassedOrFailed::Passed, PassedOrFailed::Passed);
-        let results = SimpleVisualizer::new().process_test_results(&test_results);
+        let results = ViewSimpleText::new().process_test_results(&test_results);
 
         let expected = r#"My Test Suite Title
 My Test Suite description.

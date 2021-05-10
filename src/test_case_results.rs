@@ -1,10 +1,9 @@
-use std::hash::Hash;
-
 pub use self::test_case_result::*;
 
 mod test_case_result;
 
 /// The results of all of the test cases in the test suite that was run.
+#[derive(Debug)]
 pub struct TestCaseResults {
     suite_title: String,
     suite_description: String,
@@ -43,5 +42,17 @@ impl TestCaseResults {
     /// The results of running all of the test cases.
     pub fn results(&self) -> &Vec<TestCaseResult> {
         &self.results
+    }
+
+    /// Whether or not all of the test cases passed.
+    pub fn did_pass(&self) -> bool {
+        self.results.iter().all(|r| r.did_pass())
+    }
+
+    /// # Panics
+    ///
+    /// Panics if one or more test cases failed.
+    pub fn assert_did_pass(&self) {
+        assert!(self.did_pass());
     }
 }

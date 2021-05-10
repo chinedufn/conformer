@@ -2,8 +2,6 @@
 
 #![deny(missing_docs)]
 
-use std::hash::Hash;
-
 pub use self::test_case_results::*;
 pub use self::test_suite::*;
 pub use self::visualizer::*;
@@ -36,5 +34,17 @@ where
 /// Renderer.
 pub trait TestCase<TypeToTest> {
     /// Ok if the test case was successful, otherwise an error message is returned.
-    fn run(&self, type_to_test: TypeToTest) -> TestCaseResult;
+    fn run(self: Box<Self>, type_to_test: TypeToTest) -> TestCaseResult;
+
+    /// Useful for downcasting.
+    ///
+    /// ```
+    /// # struct Foo;
+    /// # impl Foo {
+    /// fn as_any(&self) -> &dyn std::any::Any {
+    ///     self
+    /// }
+    /// #}
+    /// ```
+    fn as_any(&self) -> &dyn std::any::Any;
 }

@@ -1,5 +1,4 @@
 use crate::TestCase;
-use std::hash::Hash;
 
 /// A test suite to run.
 pub struct TestSuite<TypeToTest> {

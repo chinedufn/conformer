@@ -1,5 +1,5 @@
-pub use self::html_visualizer::*;
-pub use self::simple_visualizer::*;
+pub use self::view_html::*;
+pub use self::view_simple_text::*;
 
-mod html_visualizer;
-mod simple_visualizer;
+mod view_html;
+mod view_simple_text;
